@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX Examples</title>
+    <link rel="stylesheet" href="styles.css" media="screen" />
+    <script src="simple-post.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Simple AJAX POST request using Plain JavaScript</h1>
+      <p>Fill in your name in the field provided and click the Submit name button below.</p>
+      <form action="" method="post">
+        <div class="form-field">
+          <label for="name">Your Name:</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <button type="button" id="nameSubmitBtn" class="btn">Submit Name</button>
+      </form>
+
+      <h2>Result</h2>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>

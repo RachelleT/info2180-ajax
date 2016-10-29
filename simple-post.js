@@ -1,0 +1,37 @@
+// Plain JavaScript AJAX
+window.onload = function() {
+
+  var nameSubmitBtn = document.querySelector('#nameSubmitBtn');
+  var httpRequest;
+
+  nameSubmitBtn.addEventListener('click', function(element) {
+    element.preventDefault();
+
+    httpRequest = new XMLHttpRequest();
+    var name = document.querySelector('#name').value;
+
+    // GET Request
+    var url = "process-name.php";
+    httpRequest.onreadystatechange = processName;
+    httpRequest.open('POST', url);
+    // Notice for the POST request we are setting the Content-Type
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Notice for the POST request we are passing in our name parameter as part
+    // of the request. Also ensure you encode any special characters using
+    // encodeURIComponent()
+    httpRequest.send('name=' + encodeURIComponent(name));
+  });
+
+  function processName() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        var response = httpRequest.responseText;
+        var result = document.querySelector('#result');
+        result.textContent = response;
+      } else {
+        alert('There was a problem with the request.');
+      }
+    }
+  }
+
+};

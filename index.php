@@ -13,6 +13,7 @@
       <ol>
         <li><a href="simple-ajax.php">Simple Example using Plain JavaScript</a></li>
         <li><a href="simple-jquery-ajax.php">Simple Example using jQuery</a></li>
+        <li><a href="simple-post.php">Simple AJAX POST request using Plain JavaScript</a></li>
       </ol>
     </div>
   </body>
