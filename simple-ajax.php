@@ -10,7 +10,7 @@
     <div class="container">
       <h1>Simple Example using Plain JavaScript</h1>
       <p>Simply click the button below to load a random quote.</p>
-      <button type="button" id="loadTextBtn">Load Random Quote</button>
+      <button type="button" id="loadTextBtn" class="btn">Load Random Quote</button>
 
       <h2>Your Random Quote</h2>
       <blockquote id="quote"></blockquote>

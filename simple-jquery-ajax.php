@@ -11,7 +11,7 @@
     <div class="container">
       <h1>Simple Example of AJAX using jQuery</h1>
       <p>Simply click the button below to load a random quote.</p>
-      <button type="button" id="loadQuoteBtn">Load Random Quote</button>
+      <button type="button" id="loadQuoteBtn" class="btn">Load Random Quote</button>
 
       <h2>Your Random Quote</h2>
       <blockquote id="quote"></blockquote>
