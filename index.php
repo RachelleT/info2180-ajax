@@ -2,25 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>AJAX Example</title>
+    <title>AJAX Examples</title>
     <link rel="stylesheet" href="styles.css" media="screen" />
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
     <div class="container">
-      <h1>Name Search</h1>
-      <form id="myform" action="process.php" method="post">
-        <div class="form-field">
-          <input type="text" name="q" id="q" placeholder="Enter a name" />
-          <span>Try entering a name such as Yannick, Mary, Tom or Marsha.</span>
-        </div>
-        <button id="searchBtn" name="searchBtn" class="btn">Search</button>
-        <button id="jQuerySearchBtn" name="jQuerySearchBtn" class="btn">jQuery Search</button>
-      </form>
-      <hr />
-      <h2>Search Results</h2>
-      <div id="results"></div>
+      <h1>AJAX Examples</h1>
+      <p>Below are links to some simple examples demonstrating AJAX.</p>
+      <ol>
+        <li><a href="simple-ajax.php">Simple Example using Plain JavaScript</a></li>
+        <li><a href="simple-jquery-ajax.php">Simple Example using jQuery</a></li>
+      </ol>
     </div>
   </body>
 </html>
