@@ -9,6 +9,7 @@ window.onload = function() {
 
     httpRequest = new XMLHttpRequest();
     var name = document.querySelector('#name').value;
+    var idnumber = document.querySelector('#idnumber').value;
 
     // GET Request
     var url = "process-name.php";
@@ -19,7 +20,7 @@ window.onload = function() {
     // Notice for the POST request we are passing in our name parameter as part
     // of the request. Also ensure you encode any special characters using
     // encodeURIComponent()
-    httpRequest.send('name=' + encodeURIComponent(name));
+    httpRequest.send('name=' + encodeURIComponent(name) + "&idnumber=" + encodeURIComponent(idnumber));
   });
 
   function processName() {
@@ -27,7 +28,7 @@ window.onload = function() {
       if (httpRequest.status === 200) {
         var response = httpRequest.responseText;
         var result = document.querySelector('#result');
-        result.textContent = response;
+        result.innerHTML = response;
       } else {
         alert('There was a problem with the request.');
       }

@@ -15,6 +15,10 @@
           <label for="name">Your Name:</label>
           <input type="text" name="name" id="name" />
         </div>
+        <div class="form-field">
+          <label for="idnumber">ID Number:</label>
+          <input type="text" name="idnumber" id="idnumber" />
+        </div>
         <button type="button" id="nameSubmitBtn" class="btn">Submit Name</button>
       </form>
 
