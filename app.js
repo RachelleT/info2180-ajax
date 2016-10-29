@@ -11,12 +11,12 @@ window.onload = function() {
 
     // GET Request
     var url = "random-text.php";
-    httpRequest.onreadystatechange = loadText;
+    httpRequest.onreadystatechange = loadQuote;
     httpRequest.open('GET', url);
     httpRequest.send();
   });
 
-  function loadText() {
+  function loadQuote() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
         var response = httpRequest.responseText;
