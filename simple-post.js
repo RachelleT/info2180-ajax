@@ -18,7 +18,7 @@ window.onload = function() {
     // Notice for the POST request we are setting the Content-Type
     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     // Notice for the POST request we are passing in our name parameter as part
-    // of the request. Also ensure you encode any special characters using
+    // of the send method. Also ensure you encode any special characters using
     // encodeURIComponent()
     httpRequest.send('name=' + encodeURIComponent(name) + "&idnumber=" + encodeURIComponent(idnumber));
   });
