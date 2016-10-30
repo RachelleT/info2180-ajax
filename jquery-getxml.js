@@ -4,7 +4,8 @@ $(document).ready(function() {
 
     xmlBtn.on('click', function() {
         $.ajax('xmldata.php', {
-            method: "GET"
+            method: "GET",
+            dataType: 'xml'
         }).done(function(response) {
             var people = $(response).find('person');
             $('#results').append("<ul></ul>");
