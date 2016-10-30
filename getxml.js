@@ -18,7 +18,7 @@ window.onload = function() {
                 var response = httpRequest.responseXML;
                 var results = document.querySelector('#results');
                 var people = response.getElementsByTagName('person');
-                
+
                 var list = document.createElement('ul');
                 results.appendChild(list);
                 for (var x = 0; x < people.length; x++) {
@@ -34,3 +34,22 @@ window.onload = function() {
         }
     });
 };
+
+// Here is one way you could do it using jQuery
+// $(document).ready(function() {
+//     var xmlBtn = $('#getXml');
+//
+//     xmlBtn.on('click', function() {
+//         $.ajax('xmldata.php', {
+//             method: "GET"
+//         }).done(function(response) {
+//             var people = $(response).find('person');
+//             $('#results').append("<ul></ul>");
+//             $(people).each(function() {
+//                 $('#results ul').append('<li>' + $(this).find('name').text() + '</li>');
+//             });
+//         }).fail(function() {
+//             alert('There was a problem with the request.');
+//         });
+//     });
+// });
