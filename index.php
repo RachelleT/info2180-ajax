@@ -15,6 +15,7 @@
         <li><a href="simple-jquery-ajax.php">Simple Example using jQuery</a></li>
         <li><a href="simple-post.php">Simple AJAX POST request using Plain JavaScript</a></li>
         <li><a href="no-refresh-example.php">Example of using AJAX to build a simple website with no page refreshes</a></li>
+        <li><a href="xml-example.php">Example of using AJAX with XML data using Plain JavaScript</a></li>
       </ol>
     </div>
   </body>
