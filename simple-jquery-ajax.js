@@ -7,7 +7,7 @@ $(document).ready(function() {
     $.ajax('random-text.php', {
       method: 'GET'
     }).done(function(response) {
-      quote.text(response);
+      quote.html(response);
     }).fail(function() {
       alert('There was a problem with the request.');
     });
