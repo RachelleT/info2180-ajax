@@ -7,20 +7,25 @@ $(document).ready(function() {
     
     // Use the History API to update the browser history with the
     // new URL so we can use the browser back and forward buttons
-    history.pushState(null, null, formatForUrl(page));
+    let stateObj = { page: formatForUrl(page) };
+    history.pushState(stateObj, null, formatForUrl(page));
 
     // load the page and put it's contents in the main element.
     requestContent(page);
 
     // Update the page title in the browser tab
     document.title = 'My AJAX Web Page | ' + formatForUrl(page);
+
+    // Update active class on navigation links
+    removeActiveClass();
+    $(event.target).parent().addClass('active');
   });
 
   // This is triggered whenever a user clicks the forward and back buttons
   // in the web browser.
   $(window).on('popstate', function(event) {
     // console.log('pop state triggered');
-    let page = location.pathname;
+    let page = history.state.page;
     let filename = page + '.php';
 
     // load the page and put it's contents in the main element.
@@ -28,7 +33,10 @@ $(document).ready(function() {
 
     // Update the page title in the browser tab
     document.title = 'My AJAX Web Page | ' + page;
-    // console.log(page);
+
+    // Update active class on navigation links
+    removeActiveClass();
+    $('#nav-' + page).parent().addClass('active');
   });
 });
 
@@ -50,4 +58,8 @@ function formatForUrl(page) {
  */
 function requestContent(filename) {
   $('main').load(filename);
+}
+
+function removeActiveClass() {
+  $('nav li.active').removeClass('active');
 }
