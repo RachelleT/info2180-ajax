@@ -40,14 +40,26 @@ nav {
 nav ul {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 0;
+  padding: 0;
   height: 30px;
 }
 
 nav ul li {
-  flex-direction: row;
-  flex-grow: 1;
+  /* flex-direction: row; */
+  /* flex-grow: 1; */
   list-style: none;
+  padding: 3px 5px;
+}
+
+nav ul li a {
+  display: block;
+}
+
+nav ul li.active {
+  background: #064771;
+  color: #ffffff;
 }
 
 /* Forms */
@@ -90,4 +102,24 @@ nav ul li {
   border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
+}
+
+/* Card */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 302px);
+  grid-gap: 10px;
+}
+
+.card-grid .card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.card-grid .card img {
+  display: inline;
+}
+
+.card-grid .card .card-body {
+  padding: 10px;
 }
