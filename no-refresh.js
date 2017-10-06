@@ -1,41 +1,53 @@
 $(document).ready(function() {
-
-  // // if the hash changes, run this code
-  // $(window).on('hashchange', function() {
-  //   // Get the hash but remove the #
-  //   var pageHash = window.location.hash.substring(1);
-  //   //console.log(pageHash);
-  //
-  //   // if no hash is present in the URL then default to home.
-  //   if (pageHash.length == 0) {
-  //     pageHash = 'home';
-  //   }
-  //
-  //   // load the page and put it's contents in the main element.
-  //   $('main').load(pageHash + '.php');
-  // });
-
   // if a navigation link is clicked load the page
   $("nav a").on('click', function(event) {
     event.preventDefault();
-    var page = $(this).attr("href");
-    // window.location.hash = formatForHash(page);
-    history.pushState(null, null, formatForHash(page));
+
+    let page = $(this).attr("href");
+    
+    // Use the History API to update the browser history with the
+    // new URL so we can use the browser back and forward buttons
+    history.pushState(null, null, formatForUrl(page));
 
     // load the page and put it's contents in the main element.
-    $('main').load(page);
+    requestContent(page);
+
+    // Update the page title in the browser tab
+    document.title = 'My AJAX Web Page | ' + formatForUrl(page);
   });
 
-  $(window).trigger('hashchange');
+  // This is triggered whenever a user clicks the forward and back buttons
+  // in the web browser.
+  $(window).on('popstate', function(event) {
+    // console.log('pop state triggered');
+    let page = location.pathname;
+    let filename = page + '.php';
+
+    // load the page and put it's contents in the main element.
+    requestContent(filename);
+
+    // Update the page title in the browser tab
+    document.title = 'My AJAX Web Page | ' + page;
+    // console.log(page);
+  });
 });
 
 /**
- * Format page filename for hash
+ * Format page filename to get the page name
  *
- * @param page string the path to the page.
+ * @param page string the path to the page with extension.
  * @return string
  */
-function formatForHash(page) {
-  var hash = page.split('.');
-  return hash[0];
+function formatForUrl(page) {
+  var pageName = page.split('.');
+  return pageName[0];
+}
+
+/**
+ * Load the page and put it's contents in the main element.
+ * 
+ * @param string filename 
+ */
+function requestContent(filename) {
+  $('main').load(filename);
 }
